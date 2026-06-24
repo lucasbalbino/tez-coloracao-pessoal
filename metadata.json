@@ -1,0 +1,6 @@
+{
+  "name": "tez",
+  "description": "Aplicativo de coloração pessoal para suporte ao método sazonal estendido de 12 estações.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
