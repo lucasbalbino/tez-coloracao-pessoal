@@ -1,35 +1,69 @@
-@import "tailwindcss";
+/* Tez — global stylesheet.
+   Display/editorial: Bodoni Moda (italic) + Cormorant Garamond (italic).
+   Support/UI: Helvetica Neue (system). */
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500;1,6..96,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Italiana&family=Outfit:wght@300;400;500;700&family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
-
-@theme {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-spring: 'Outfit', sans-serif;
-  --font-summer: 'Cormorant Garamond', serif;
-  --font-autumn: 'Italiana', serif;
-  --font-winter: 'Syne', sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* Custom styles for premium cosmetic and palette displays */
-.scroll-hide::-webkit-scrollbar {
-  display: none;
-}
-.scroll-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-4px); }
+body {
+  background: #d6d2ca;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #1b1a18;
+  -webkit-font-smoothing: antialiased;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+/* Hide scrollbars inside the device frame */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
-/* Android frame mock utility */
-.android-shadow {
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+@keyframes tezFlood {
+  from {
+    clip-path: circle(0% at 50% 88%);
+  }
+  to {
+    clip-path: circle(150% at 50% 88%);
+  }
 }
-
+@keyframes tezUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes tezPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.92;
+  }
+  50% {
+    transform: scale(1.035);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-wheel-pulse],
+  .tez-blades {
+    animation: none !important;
+  }
+}
+.tez-blades {
+  transform-box: fill-box;
+  transform-origin: center;
+}
